@@ -77,13 +77,15 @@ public class TemperatureSeriesAnalysis {
 
     public double findTempClosestToValue(double tempValue) {
         empty_check();
+        double dif = 0;
         double difference = (temperatures[0] - tempValue);
         for (int i = 0; i < temperatures.length; i++) {
             if (Math.abs(temperatures[i] - tempValue) <= Math.abs(difference)){
-                difference = temperatures[i];
+                difference = temperatures[i]-tempValue;
+                dif = temperatures[i];
             }
         }
-    return difference;
+    return dif;
     }
 
     public double[] findTempsLessThen(double tempValue) {
